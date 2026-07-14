@@ -25,7 +25,7 @@ A simple RESTful Task Management API built using **FastAPI**. This project demon
 ## Project Structure
 
 ```text
-task-api/
+CRUD_API/
 │── main.py          # FastAPI application
 │── README.md        # Project documentation
 │── requirements.txt # Project dependencies (optional)
@@ -38,13 +38,13 @@ task-api/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/<your-username>/task-api.git
+git clone https://github.com/<your-username>/CRUD_API.git
 ```
 
 ### 2. Navigate to the project
 
 ```bash
-cd task-api
+cd CRUD_API
 ```
 
 ### 3. Create a virtual environment (Recommended)
@@ -230,6 +230,6 @@ GitHub: [https://github.com/<your-username>](https://github.com/shrutisachan08)
 
 ---
 
-## 📄 License
+## License
 
 This project is developed for educational purposes as part of a FastAPI backend assignment.
