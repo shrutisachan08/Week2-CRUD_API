@@ -226,7 +226,7 @@ docs/swagger-ui.png
 B.Tech Electronics & Communication Engineering  
 IIITDM Jabalpur
 
-GitHub: https://github.com/<your-username>
+GitHub: [https://github.com/<your-username>](https://github.com/shrutisachan08)
 
 ---
 
