@@ -219,6 +219,85 @@ docs/swagger-ui.png
 
 ---
 
+# AI vs Me
+
+## Full AI Prompt
+
+```text
+Build a FastAPI Task API that supports CRUD operations on an in-memory list. Include GET, POST, PUT, DELETE endpoints, Pydantic validation, appropriate HTTP status codes, and Swagger documentation.
+```
+
+---
+
+## Comparison
+
+### 1. What did the AI do better?
+
+- The AI generated a complete CRUD API in a single response with clean formatting and consistent code style.
+- It configured the FastAPI application with metadata such as `title`, `description`, and `version`, making the generated Swagger documentation more polished.
+- It consistently used named HTTP status constants (e.g., `status.HTTP_404_NOT_FOUND`) instead of numeric status codes, which improves readability.
+
+---
+
+### 2. What did the AI get wrong or quietly ignore?
+
+- My prompt did not explicitly require endpoint summaries and descriptions, so the AI generated only minimal Swagger documentation, whereas my implementation includes descriptive summaries for every endpoint.
+- The AI accepted any non-null string as a task title and did not validate that the title must be non-empty.
+- The home (`/`) endpoint returned a generic welcome message instead of listing API information and available endpoints like my implementation.
+
+---
+
+### 3. What did my prompt forget to specify?
+
+While reviewing the AI-generated solution, I realized my prompt did not explicitly mention:
+
+- The exact HTTP status code expected for each endpoint (especially `204 No Content` for DELETE).
+- Validation rules such as rejecting empty task titles.
+- The exact JSON response format for the home endpoint.
+- That every endpoint should include Swagger summaries and descriptions.
+- The desired structure of the home endpoint response.
+
+Because these details were missing, the AI made its own implementation decisions.
+
+---
+
+## Improved Prompt
+
+```text
+Build a FastAPI Task API using an in-memory list for storage.
+
+Requirements:
+- Implement the following endpoints:
+  - GET /
+  - GET /health
+  - GET /tasks
+  - GET /tasks/{task_id}
+  - POST /tasks
+  - PUT /tasks/{task_id}
+  - DELETE /tasks/{task_id}
+- Use Pydantic for request validation.
+- Return appropriate HTTP status codes:
+  - 200 OK
+  - 201 Created
+  - 204 No Content for DELETE
+  - 404 Not Found for missing tasks
+- Reject empty task titles.
+- Add Swagger summaries and descriptions for every endpoint.
+- Do not use a database; store tasks only in an in-memory list.
+```
+
+---
+
+## One Rematch – What Changed?
+
+After improving the prompt, the regenerated code was closer to my implementation. It included clearer API documentation, followed the required status codes more closely, and better matched the assignment requirements because the prompt removed several ambiguities.
+
+---
+
+## Reflection
+
+Building the API manually before using AI made it much easier to evaluate the generated code. Instead of accepting the AI's solution blindly, I was able to identify missing requirements, compare implementation choices, and understand why certain design decisions were better suited to the assignment. This exercise showed me that the quality of AI-generated code depends heavily on the quality and completeness of the prompt.
+
 # Author
 
 **Shruti Sachan**
@@ -230,6 +309,7 @@ GitHub: https://github.com/<your-username>
 
 ---
 
-## 📄 License
+## License
 
 This project is developed for educational purposes as part of a FastAPI backend assignment.
+
