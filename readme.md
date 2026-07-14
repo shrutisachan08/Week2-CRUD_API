@@ -310,7 +310,6 @@ GitHub: [https://github.com/<your-username>](https://github.com/shrutisachan08)
 ---
 
 ## License
-## License
 
 This project is developed for educational purposes as part of a FastAPI backend assignment.
 
